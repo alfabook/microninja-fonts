@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# postinst
+#
+# Copyright (C) 2014 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
+#
+# Copyright (C) 2016 Alfabook srl
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
+# rebadged with microninja
+
+
+case "$1" in
+    configure)
+
+        # Update microninja installed fonts information for the X server
+        mkfontdir /usr/share/fonts/microninja
+        mkfontscale /usr/share/fonts/microninja
+        fc-cache
+
+        ;;
+
+esac
+
+#DEBHELPER#
+
+exit 0
